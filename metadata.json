@@ -1,0 +1,6 @@
+{
+  "name": "Thailand Expat Support Hub",
+  "description": "A comprehensive landing page, consultation booking system, Telegram bot simulator, and personal cabinet for assisting foreigners in Thailand with visa, legal, and relocation tasks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

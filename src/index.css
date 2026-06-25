@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-siam-teal: #0d5c53;
+  --color-siam-teal-dark: #073833;
+  --color-siam-gold: #c39247;
+  --color-siam-gold-light: #e6cb95;
+  --color-siam-sand: #fbf9f4;
+
+  --breakpoint-xs: 420px;
+}
+
+/* Custom visual styles */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-siam-sand);
+  color: #1e293b;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: #141b1a;
+  color: #f5f5f4;
+}
+
+.title-serif {
+  font-family: var(--font-serif);
+}
+
+.telegram-bubble-in {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 12px 12px 12px 0px;
+}
+
+.telegram-bubble-out {
+  position: relative;
+  background-color: #effdde;
+  border-radius: 12px 12px 0px 12px;
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(15deg); }
+  20% { transform: rotate(-10deg); }
+  30% { transform: rotate(5deg); }
+  40% { transform: rotate(-5deg); }
+  50% { transform: rotate(0deg); }
+}
+
+.animate-swing {
+  animation: swing 2s ease-in-out infinite;
+  transform-origin: top center;
+}

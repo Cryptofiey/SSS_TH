@@ -1,0 +1,104 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile representation in database",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "telegram": { "type": "string" },
+        "currentVisa": { "type": "string" },
+        "referredBy": { "type": "string" }
+      },
+      "required": ["uid", "email", "name"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "Visa consultation or legal service booking record",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "serviceId": { "type": "string" },
+        "serviceTitle": { "type": "string" },
+        "date": { "type": "string" },
+        "timeSlot": { "type": "string" },
+        "status": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userName": { "type": "string" },
+        "userPhone": { "type": "string" },
+        "userTelegram": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "serviceId", "serviceTitle", "date", "timeSlot", "status"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Interactions or support chats with bot/legal expert",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "sender": { "type": "string" },
+        "text": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["userId", "sender", "text", "timestamp"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "In-app system notification",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "read": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "bookingId": { "type": "string" }
+      },
+      "required": ["userId", "title", "message", "type", "read", "createdAt"]
+    },
+    "DocumentStatus": {
+      "title": "DocumentStatus",
+      "description": "User uploaded document for lawyer review",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "status": { "type": "string" },
+        "lastUpdated": { "type": "string" },
+        "notes": { "type": "string" },
+        "fileData": { "type": "string" },
+        "fileName": { "type": "string" },
+        "fileSize": { "type": "string" }
+      },
+      "required": ["userId", "id", "name", "status", "lastUpdated"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles collection"
+    },
+    "bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Service bookings collection"
+    },
+    "chat_messages/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "Support chat messages collection"
+    },
+    "notifications/{notificationId}": {
+      "schema": "Notification",
+      "description": "In-app notifications collection"
+    },
+    "documents/{documentId}": {
+      "schema": "DocumentStatus",
+      "description": "User uploaded documents collection"
+    }
+  }
+}
